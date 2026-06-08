@@ -3,6 +3,7 @@ Flask-Cors==4.0.1
 pandas
 numpy
 google-genai==0.6.0
+google-generativeai
 gunicorn==22.0.0
 python-dotenv==1.0.1
 chromadb>=0.6.0

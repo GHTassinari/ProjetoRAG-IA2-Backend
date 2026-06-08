@@ -7,8 +7,15 @@ from google.genai import types
 model_embeddings = 'models/gemini-embedding-001'
 modelo_llm = 'gemini-3-flash-preview'
 
-chroma_client = chromadb.PersistentClient(path="./chroma_db")
-collection = chroma_client.get_collection(name="tcc_rag_collection")
+_chroma_client = None
+_collection = None
+
+def _get_collection():
+    global _chroma_client, _collection
+    if _collection is None:
+        _chroma_client = chromadb.PersistentClient(path="./chroma_db")
+        _collection = _chroma_client.get_collection(name="tcc_rag_collection")
+    return _collection
 
 def gerarBuscarConsulta(consulta):
     embedding_consulta = generativeai.embed_content(
@@ -16,8 +23,8 @@ def gerarBuscarConsulta(consulta):
         content=consulta,
         task_type="retrieval_query"
     )
-    
-    resultado_busca = collection.query(
+
+    resultado_busca = _get_collection().query(
         query_embeddings=[embedding_consulta['embedding']],
         n_results=1
     )
