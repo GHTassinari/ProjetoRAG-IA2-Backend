@@ -1,10 +1,9 @@
 import os
 import chromadb
-import google.generativeai as generativeai
 from google import genai
 from google.genai import types
 
-model_embeddings = 'models/gemini-embedding-001'
+model_embeddings = 'text-embedding-004'
 modelo_llm = 'gemini-3-flash-preview'
 
 _chroma_client = None
@@ -18,14 +17,12 @@ def _get_collection():
     return _collection
 
 def gerarBuscarConsulta(consulta):
-    embedding_consulta = generativeai.embed_content(
-        model=model_embeddings,
-        content=consulta,
-        task_type="retrieval_query"
-    )
+    client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+    result = client.models.embed_content(model=model_embeddings, contents=consulta)
+    vetor = result.embeddings[0].values
 
     resultado_busca = _get_collection().query(
-        query_embeddings=[embedding_consulta['embedding']],
+        query_embeddings=[vetor],
         n_results=1
     )
     
