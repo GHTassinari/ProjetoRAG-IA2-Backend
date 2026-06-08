@@ -9,6 +9,3 @@ __pycache__/
 .vscode/
 .idea/
 .DS_Store
-
-# Não subir o banco vetorial local para o GitHub
-chroma_db/
