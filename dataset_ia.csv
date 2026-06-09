@@ -1,0 +1,31 @@
+ID,Context,Information
+1,Conceito de IA,"A Inteligência Artificial (IA) é um campo da ciência da computação que cria sistemas capazes de realizar tarefas que normalmente exigem inteligência humana, como reconhecimento de fala e tomada de decisão."
+2,IA Generativa,"IA Generativa refere-se a modelos de inteligência artificial projetados para criar novos conteúdos, como textos, imagens, códigos e músicas, a partir de padrões aprendidos em grandes volumes de dados."
+3,Aprendizado de Máquina,"O Machine Learning (Aprendizado de Máquina) é um subcampo da IA onde os algoritmos aprendem e melhoram seu desempenho a partir da exposição a dados, sem serem explicitamente programados para cada ação."
+4,LLM (Large Language Models),"LLMs, ou Grandes Modelos de Linguagem, são IAs treinadas em vastas quantidades de texto para entender, resumir e gerar linguagem natural. Exemplos incluem o Gemini e o GPT."
+5,RAG na Educação,"RAG (Retrieval-Augmented Generation) pode ser usado na educação para conectar uma IA aos materiais didáticos de uma escola, garantindo que as respostas dadas aos alunos sejam baseadas no conteúdo oficial."
+6,Personalização do Ensino,"A IA permite a personalização do ensino ao adaptar o ritmo, o nível de dificuldade e o formato do conteúdo de acordo com o desempenho e as necessidades individuais de cada aluno."
+7,Tutores Virtuais,"Tutores virtuais baseados em IA podem fornecer suporte 24 horas por dia, tirando dúvidas frequentes dos alunos e oferecendo explicações extras sobre tópicos complexos."
+8,Automação de Correção,"Professores podem utilizar ferramentas de IA para automatizar a correção de provas objetivas e auxiliar na revisão gramatical e estrutural de redações, economizando tempo."
+9,Prevenção de Evasão,"Sistemas de IA podem analisar o engajamento, as notas e a frequência dos alunos para prever o risco de evasão escolar e alertar os coordenadores pedagógicos preventivamente."
+10,Criação de Planos de Aula,"Ferramentas generativas ajudam professores a estruturar planos de aula, sugerindo dinâmicas, listas de exercícios e leituras complementares com base no tema escolhido."
+11,Acessibilidade Visual,A IA melhora a acessibilidade para alunos com deficiência visual através de ferramentas precisas de audiodescrição automática e conversão de texto para fala (Text-to-Speech).
+12,Acessibilidade Auditiva,"Para alunos com deficiência auditiva, a IA oferece legendagem em tempo real durante aulas por videoconferência e conversão de voz em texto com alta precisão."
+13,Tradução Simultânea,"Plataformas com IA integrada permitem a tradução simultânea de materiais e aulas, auxiliando alunos estrangeiros ou facilitando o acesso a cursos de outros países."
+14,Desafio: Alucinação da IA,"Um dos maiores riscos do uso de IAs generativas por alunos é a ""alucinação"", que ocorre quando o modelo gera informações falsas ou inexistentes com um tom de muita confiança."
+15,Desafio: Plágio,O uso de IA para escrever trabalhos acadêmicos inteiros levanta debates éticos sobre autoria e plágio. Instituições estão desenvolvendo diretrizes para o uso aceitável da ferramenta.
+16,Viés Algorítmico,"IAs podem reproduzir preconceitos (vieses) presentes nos dados em que foram treinadas, o que exige supervisão humana para evitar discriminação no ambiente educacional."
+17,Privacidade de Dados,"O uso de plataformas de IA em escolas exige conformidade com leis de proteção de dados (como a LGPD), pois essas ferramentas coletam interações e dados de desempenho dos menores."
+18,Dependência Tecnológica,Educadores alertam que o uso excessivo de IA para resolver problemas pode reduzir a capacidade de pensamento crítico e de resolução independente de problemas por parte dos alunos.
+19,Letramento em IA,"É fundamental que as escolas ensinem o ""letramento em IA"", capacitando os alunos a entenderem como essas ferramentas funcionam, suas limitações e como fazer perguntas (prompts) eficazes."
+20,Gamificação com IA,"A Inteligência Artificial pode gerar cenários dinâmicos em jogos educacionais, onde a narrativa e os desafios mudam em tempo real dependendo das escolhas do estudante."
+21,Análise de Sentimento,Ferramentas de análise de sentimento podem ler textos de fóruns escolares para medir o clima emocional de uma turma e identificar potenciais casos de bullying ou desmotivação.
+22,Assistentes para TCC,"A IA não deve escrever o TCC pelo aluno, mas atua como excelente assistente para estruturar sumários, revisar formatação ABNT e sugerir palavras-chave para revisão bibliográfica."
+23,Realidade Virtual (VR) e IA,"A combinação de VR e IA permite simulações de laboratório realistas, onde um aluno de medicina ou química pode interagir com um paciente ou experimento simulado inteligentemente."
+24,Microlearning,"A IA facilita o ""microlearning"", fatiando aulas longas em módulos curtos e gerando pílulas de conhecimento diárias baseadas no que o aluno tem mais dificuldade em reter."
+25,Curadoria de Conteúdo,"Bibliotecas universitárias utilizam IA para complementar e recomendar artigos científicos e livros de forma muito mais assertiva, cruzando o histórico de pesquisa do aluno com bases globais."
+26,Detecção de IA,"Existem ferramentas focadas em detectar se um texto foi escrito por humanos ou por IA (como o Turnitin), embora elas não sejam 100% precisas e possam gerar falsos positivos."
+27,O Papel do Professor,"Com a IA assumindo tarefas operacionais e de transmissão de conteúdo básico, o papel do professor evolui para o de um mentor, mediador e curador de experiências de aprendizado."
+28,Chatbots Institucionais,"Universidades usam chatbots baseados em RAG para responder a perguntas frequentes de calouros sobre datas de matrícula, localização de blocos e funcionamento do restaurante universitário."
+29,Avaliação Formativa Contínua,"Em vez de focar apenas em grandes provas finais, a IA permite uma avaliação formativa, dando feedback instantâneo ao aluno a cada pequeno exercício resolvido durante o semestre."
+30,Democratização do Ensino,"Apesar dos desafios de infraestrutura, a IA tem o potencial de baratear o custo da educação de qualidade, escalando o acesso a tutores de alto nível para estudantes de baixa renda."
