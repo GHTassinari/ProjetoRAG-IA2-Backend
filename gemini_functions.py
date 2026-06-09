@@ -17,7 +17,7 @@ def _get_collection():
     return _collection
 
 def gerarBuscarConsulta(consulta):
-    client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+    client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"), http_options={"api_version": "v1"})
     result = client.models.embed_content(model=model_embeddings, contents=consulta)
     vetor = result.embeddings[0].values
 
