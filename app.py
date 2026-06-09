@@ -19,6 +19,7 @@ inicializar_banco()
 from gemini_functions import gerarBuscarConsulta, melhorarResposta
 
 app = Flask(__name__)
+app.json.ensure_ascii = False
 
 CORS(app)
 

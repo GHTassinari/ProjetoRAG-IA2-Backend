@@ -1,0 +1,41 @@
+name: Build and deploy Python app to Azure Web App - meu-rag-backend
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6B29492E45E3474A86CA3E3C6C444EC0 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4E782FF2A2D74A6CA35EC8E2615FF019 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_4154067A8F894DBE8359F9D2AD387495 }}
+
+      - name: Stop app to release deployment lock
+        run: az webapp stop --name meu-rag-backend --resource-group grupo-rag-ia
+
+      - name: Create deployment zip
+        run: zip -r deploy.zip . --exclude "*.git*" --exclude "__pycache__/*" --exclude ".claude/*" --exclude "antenv/*" --exclude "setup_server.py"
+
+      - name: Deploy via az webapp deploy
+        run: |
+          az webapp deploy \
+            --name meu-rag-backend \
+            --resource-group grupo-rag-ia \
+            --src-path deploy.zip \
+            --type zip
+
+      - name: Start app
+        run: az webapp start --name meu-rag-backend --resource-group grupo-rag-ia
