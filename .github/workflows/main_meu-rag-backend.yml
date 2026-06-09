@@ -27,11 +27,18 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Create deployment zip
+        run: |
+          zip -r deploy.zip . \
+            --exclude "*.git*" \
+            --exclude "__pycache__/*" \
+            --exclude ".claude/*"
+
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
-          name: python-app
-          path: .
+          name: deploy-zip
+          path: deploy.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -44,7 +51,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: python-app
+          name: deploy-zip
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -53,9 +60,20 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4E782FF2A2D74A6CA35EC8E2615FF019 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_4154067A8F894DBE8359F9D2AD387495 }}
 
-      - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'meu-rag-backend'
-          slot-name: 'Production'
-          startup-command: 'gunicorn --bind=0.0.0.0 --timeout=600 --workers=1 app:app'
+      - name: Stop app before deploy
+        run: az webapp stop --name meu-rag-backend --resource-group grupo-rag-ia
+
+      - name: Deploy via SCM zip (bypasses OneDeploy 409)
+        run: |
+          az webapp deployment source config-zip \
+            --name meu-rag-backend \
+            --resource-group grupo-rag-ia \
+            --src deploy.zip
+
+      - name: Set startup command and start app
+        run: |
+          az webapp config set \
+            --name meu-rag-backend \
+            --resource-group grupo-rag-ia \
+            --startup-file 'gunicorn --bind=0.0.0.0 --timeout=600 --workers=1 app:app'
+          az webapp start --name meu-rag-backend --resource-group grupo-rag-ia
